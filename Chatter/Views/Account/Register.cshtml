@@ -34,15 +34,16 @@
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Register" />
         </div>
-    </div>
-
-    <!--Adding Google Login Authentication-->
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
+    </div>   
 }
+
+ <!--Adding Google Login Authentication-->
+
+<div class="col-md-4">
+    <section id="socialLoginForm">
+        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+    </section>
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
