@@ -11,14 +11,23 @@
 </p>
 
 <div id="response"></div>
-<button id="getChats" class="btn btn-primary">Get Chats</button>
+<button onclick="Test()" id="getChats" class="btn btn-primary">Get Chats</button>
 
 @section Scripts {
     <script>  
-        var jsonTest = {"firstName" : "Bob", "lastName" : "Sauce", "children" :
-        [{"firstName" : "Barbie", "age" : 19}, {"firstName" : "Ron", "age" : null}]}
+        //var jsonTest = {"firstName" : "Bob", "lastName" : "Sauce", "children" :
+        //[{"firstName" : "Barbie", "age" : 19}, {"firstName" : "Ron", "age" : null}]}
 
-        $("#response").text(jsonTest.children[1].age);
+        //$("#response").text(jsonTest.children[1].age);
+
+        function Test(){
+        $.get("@Url.Action("TestJson", "Chats")", function (serverResponse) {
+            var jsonTest = JSON.parse(serverResponse);
+            console.log(jsonTest);
+            $("#response").text(jsonTest.firstName);
+            
+        });
+        }
     </script>}
 
 

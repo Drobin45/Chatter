@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 
 namespace Chatter.Models
 {
@@ -18,6 +19,12 @@ namespace Chatter.Models
         {
             var chats = db.Chats.Include(c => c.AspNetUser);
             return View(chats.ToList());
+        }
+
+        public JsonResult TestJson()
+        {
+            string jsonTest = "{ \"firstName\": \"Bob\", \"lastName\" : \"Sauce\", \"children\" : [{ \"firstName\" : \"Barbie\", \"age\" : 19}, {\"firstName\" : \"Ron\", \"age\" : null }] }";
+            return Json(jsonTest, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Chats/Details/5
